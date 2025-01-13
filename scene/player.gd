@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $character/animatedSprite
+@export var isMoving = false
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -28,8 +29,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("debug_start"):
+	if Input.is_action_just_pressed("debug_start") and isMoving == false:
 		walkspeed = max_walkspeed
+		isMoving = true
 	if Input.is_action_just_pressed("debug_leave"):
 		get_tree().quit()
 	
@@ -38,4 +40,4 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("attack"):
 		pass
 	if Input.is_action_just_pressed("pause"):
-		pass
+		isMoving = false

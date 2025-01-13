@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://datk1v2jxeav2"]
+[gd_scene load_steps=6 format=3 uid="uid://datk1v2jxeav2"]
 
+[ext_resource type="Script" path="res://script/background_handler.gd" id="1_2f10g"]
 [ext_resource type="PackedScene" uid="uid://tjb08rwsg7id" path="res://scene/player.tscn" id="1_2wj1x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f2l7w"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qrqpd"]
 
@@ -8,6 +11,15 @@
 size = Vector2(1737, 338)
 
 [node name="game" type="Node2D"]
+
+[node name="backgroundHandler" type="Node2D" parent="."]
+script = ExtResource("1_2f10g")
+
+[node name="background" type="MeshInstance2D" parent="backgroundHandler"]
+modulate = Color(0.482353, 1, 1, 1)
+position = Vector2(500, -100)
+scale = Vector2(1646, 926)
+mesh = SubResource("BoxMesh_f2l7w")
 
 [node name="player" parent="." instance=ExtResource("1_2wj1x")]
 
