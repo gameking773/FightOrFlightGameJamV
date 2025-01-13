@@ -11,7 +11,7 @@ const max_walkspeed = 1.25
 var walkspeed = 0
 
 # If False, using a gun
-var isUsingSword = true
+@export var isUsingSword = true
 
 func gameover() -> void:
 	isMoving = false
@@ -50,9 +50,12 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		if Input.is_action_just_pressed("switch_weapon"):
-			pass
+			isUsingSword = not isUsingSword
 		if Input.is_action_just_pressed("attack"):
-			pass
+			if isUsingSword:
+				$character/attackAnim.play("swordAtk")
+			else:
+				pass
 		if Input.is_action_just_pressed("pause"):
 			isMoving = false
 

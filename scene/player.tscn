@@ -1,10 +1,124 @@
-[gd_scene load_steps=19 format=3 uid="uid://tjb08rwsg7id"]
+[gd_scene load_steps=25 format=3 uid="uid://tjb08rwsg7id"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_7rxf8"]
 [ext_resource type="Texture2D" uid="uid://eoyupicak63x" path="res://texture/chick_spritesheet.png" id="2_0qk7n"]
 [ext_resource type="Script" path="res://script/spritehandle.gd" id="2_ee8jf"]
+[ext_resource type="Texture2D" uid="uid://bvq3qjmcubupm" path="res://texture/swordSprite.png" id="3_krgha"]
+[ext_resource type="Texture2D" uid="uid://dvmwworhtfv1q" path="res://texture/flintlockSprite.png" id="5_b7yng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfyvs"]
+
+[sub_resource type="Animation" id="Animation_k8gmw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.802851]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.3, -18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gun:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(53, 18)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("gun:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.279253]
+}
+
+[sub_resource type="Animation" id="Animation_qou4m"]
+resource_name = "sword"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.2, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.802851, 1.74009, 1.74009, -0.802851]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.466667, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.3, -18), Vector2(44.43, -47.702), Vector2(87.56, 23.175), Vector2(87.56, 23.175), Vector2(44.43, -41.888), Vector2(1.3, -18)]
+}
+
+[sub_resource type="Animation" id="Animation_6771a"]
+resource_name = "gunAtk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.433333, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(53, 18), Vector2(60.085, 7.705), Vector2(60.085, 7.705), Vector2(33.485, -23.67), Vector2(53, 18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.433333, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.279253, 0.0, 3.15015e-08, -1.12748, 0.279253]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pfege"]
+_data = {
+"RESET": SubResource("Animation_k8gmw"),
+"gunAtk": SubResource("Animation_6771a"),
+"swordAtk": SubResource("Animation_qou4m")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4i7tt"]
 atlas = ExtResource("2_0qk7n")
@@ -350,11 +464,30 @@ default_font_size = 31
 script = ExtResource("1_7rxf8")
 
 [node name="collisionbox" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_vfyvs")
 
 [node name="character" type="Node2D" parent="."]
 script = ExtResource("2_ee8jf")
+
+[node name="attackAnim" type="AnimationPlayer" parent="character"]
+libraries = {
+"": SubResource("AnimationLibrary_pfege")
+}
+
+[node name="sword" type="Sprite2D" parent="character"]
+visible = false
+position = Vector2(1.3, -18)
+rotation = -0.802851
+scale = Vector2(5, 5)
+texture = ExtResource("3_krgha")
+
+[node name="gun" type="Sprite2D" parent="character"]
+position = Vector2(53, 18)
+rotation = 0.279253
+scale = Vector2(3, 3)
+texture = ExtResource("5_b7yng")
 
 [node name="animatedSprite" type="AnimatedSprite2D" parent="character"]
 position = Vector2(0, -47)
@@ -364,6 +497,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="playerArea" type="Area2D" parent="."]
+visible = false
 
 [node name="playerHurtbox" type="CollisionShape2D" parent="playerArea"]
 shape = SubResource("RectangleShape2D_gsy15")
