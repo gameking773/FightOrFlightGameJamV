@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://datk1v2jxeav2"]
+[gd_scene load_steps=4 format=3 uid="uid://datk1v2jxeav2"]
+
+[ext_resource type="PackedScene" uid="uid://tjb08rwsg7id" path="res://scene/player.tscn" id="1_2wj1x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qrqpd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cbm4"]
+size = Vector2(1737, 338)
 
 [node name="game" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_2wj1x")]
+
+[node name="baseplate" type="StaticBody2D" parent="."]
+position = Vector2(0, 79)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="baseplate"]
+modulate = Color(0.27451, 0.513726, 0.227451, 1)
+position = Vector2(492.965, 64)
+scale = Vector2(1737.06, 186)
+mesh = SubResource("BoxMesh_qrqpd")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="baseplate"]
+modulate = Color(0.27451, 0.215686, 0.227451, 1)
+position = Vector2(492.965, 165)
+scale = Vector2(1737.06, 288)
+mesh = SubResource("BoxMesh_qrqpd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baseplate"]
+position = Vector2(492.945, 140)
+shape = SubResource("RectangleShape2D_2cbm4")
