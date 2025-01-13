@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://tjb08rwsg7id"]
 
-[ext_resource type="Script" path="res://scene/player.gd" id="1_7rxf8"]
+[ext_resource type="Script" path="res://script/player.gd" id="1_7rxf8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfyvs"]
 
