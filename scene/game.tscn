@@ -5,10 +5,10 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_f2l7w"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_qrqpd"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cbm4"]
 size = Vector2(1737, 338)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qrqpd"]
 
 [node name="game" type="Node2D"]
 
@@ -30,18 +30,18 @@ zoom = Vector2(0.7, 0.7)
 [node name="baseplate" type="StaticBody2D" parent="."]
 position = Vector2(0, 79)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baseplate"]
+position = Vector2(492.945, 204)
+shape = SubResource("RectangleShape2D_2cbm4")
+
 [node name="MeshInstance2D" type="MeshInstance2D" parent="baseplate"]
 modulate = Color(0.27451, 0.513726, 0.227451, 1)
-position = Vector2(492.965, 64)
+position = Vector2(492.965, 128)
 scale = Vector2(1737.06, 186)
 mesh = SubResource("BoxMesh_qrqpd")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="baseplate"]
 modulate = Color(0.27451, 0.215686, 0.227451, 1)
-position = Vector2(492.965, 165)
+position = Vector2(492.965, 229)
 scale = Vector2(1737.06, 288)
 mesh = SubResource("BoxMesh_qrqpd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="baseplate"]
-position = Vector2(492.945, 140)
-shape = SubResource("RectangleShape2D_2cbm4")
