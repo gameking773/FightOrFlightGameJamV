@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://datk1v2jxeav2"]
+[gd_scene load_steps=9 format=3 uid="uid://datk1v2jxeav2"]
 
 [ext_resource type="Script" path="res://script/background_handler.gd" id="1_2f10g"]
 [ext_resource type="PackedScene" uid="uid://tjb08rwsg7id" path="res://scene/player.tscn" id="1_2wj1x"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="4_b8d8e"]
 [ext_resource type="Script" path="res://script/terrain_gen.gd" id="4_ukmbk"]
 [ext_resource type="PackedScene" uid="uid://b5qy1vg1r068x" path="res://scene/spike.tscn" id="6_fm2sq"]
+[ext_resource type="PackedScene" uid="uid://iuwkaoutwnvs" path="res://scene/pirate.tscn" id="7_83ha2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f2l7w"]
 
@@ -42,5 +43,8 @@ position = Vector2(1100, 265)
 
 [node name="spike" parent="." instance=ExtResource("6_fm2sq")]
 position = Vector2(928, 84)
+
+[node name="pirate" parent="." instance=ExtResource("7_83ha2")]
+position = Vector2(716, 57)
 
 [connection signal="playispressed" from="main_menu" to="player" method="_on_main_menu_playispressed"]

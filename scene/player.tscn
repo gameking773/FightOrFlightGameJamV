@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_7rxf8"]
 [ext_resource type="Texture2D" uid="uid://eoyupicak63x" path="res://texture/chick_spritesheet.png" id="2_0qk7n"]
-[ext_resource type="Script" path="res://scene/playerSpriteHandle.gd" id="2_ee8jf"]
+[ext_resource type="Script" path="res://script/spritehandle.gd" id="2_ee8jf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfyvs"]
 
