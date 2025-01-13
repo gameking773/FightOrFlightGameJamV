@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $character/animatedSprite
+
 @export var isMoving = false
 
 const SPEED = 300.0
@@ -41,3 +42,8 @@ func _input(_event: InputEvent) -> void:
 		pass
 	if Input.is_action_just_pressed("pause"):
 		isMoving = false
+
+
+func _on_main_menu_playispressed() -> void:
+	walkspeed = max_walkspeed
+	isMoving = true
