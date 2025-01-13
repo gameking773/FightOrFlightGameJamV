@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $character/animatedSprite
 
 @export var isMoving = false
+@export var isAttacking = false
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -450.0

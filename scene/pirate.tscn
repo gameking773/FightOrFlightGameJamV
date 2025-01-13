@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://c316wycjjpyey"]
+[gd_scene format=3 uid="uid://iuwkaoutwnvs"]
 
-[node name="Node2D" type="Node2D"]
+[node name="pirate" type="CharacterBody2D"]
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+[node name="collisionbox" type="CollisionShape2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+[node name="area" type="Area2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
+[node name="hurtbox" type="CollisionShape2D" parent="area"]
