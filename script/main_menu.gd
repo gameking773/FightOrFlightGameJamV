@@ -8,6 +8,8 @@ func main_menu_despawn() -> void:
 	while modulate.a > 0:
 		await get_tree().create_timer(0.001).timeout
 		modulate.a -= 0.01
+	$Jouer.queue_free()
+	$Quitter.queue_free()
 
 func _on_jouer_pressed() -> void:
 	main_menu_despawn()

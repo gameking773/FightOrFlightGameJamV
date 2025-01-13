@@ -1,4 +1,4 @@
 extends StaticBody2D
 
-func _on_object_entered_tree(node: Node) -> void:
-	print("something entered")
+func _on_hitbox_collision(objectHit: Area2D) -> void:
+	print(objectHit)

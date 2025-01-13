@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5qy1vg1r068x"]
-
-[ext_resource type="Script" path="res://script/spike.gd" id="1_j6tdm"]
+[gd_scene load_steps=4 format=3 uid="uid://b5qy1vg1r068x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkclh"]
 size = Vector2(35.435, 30.935)
@@ -12,21 +10,17 @@ size = Vector2(70, 30)
 size = Vector3(-70, -60, 1)
 
 [node name="spike" type="StaticBody2D"]
-script = ExtResource("1_j6tdm")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="."]
 
-[node name="topShape" type="CollisionShape2D" parent="Area2D"]
+[node name="topShape" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_lkclh")
 
-[node name="baseShape" type="CollisionShape2D" parent="Area2D"]
+[node name="baseShape" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_5f7pp")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(1, 0.164706, 0.286275, 1)
 mesh = SubResource("PrismMesh_wng87")
-
-[connection signal="child_entered_tree" from="Area2D/topShape" to="." method="_on_object_entered_tree"]
-[connection signal="child_entered_tree" from="Area2D/baseShape" to="." method="_on_object_entered_tree"]
