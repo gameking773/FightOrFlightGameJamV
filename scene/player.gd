@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var isMoving = false
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -450.0
 const max_walkspeed = 1.25
 var walkspeed = 0
 

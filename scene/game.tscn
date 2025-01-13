@@ -26,6 +26,7 @@ position = Vector2(500, -100)
 zoom = Vector2(0.7, 0.7)
 
 [node name="player" parent="." instance=ExtResource("1_2wj1x")]
+position = Vector2(0, 64)
 
 [node name="baseplate" type="StaticBody2D" parent="."]
 position = Vector2(0, 79)
