@@ -1,26 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5qy1vg1r068x"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkclh"]
-size = Vector2(35.435, 30.935)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f7pp"]
-size = Vector2(70, 30)
-
 [sub_resource type="PrismMesh" id="PrismMesh_wng87"]
 size = Vector3(-70, -60, 1)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1ca1a"]
+a = Vector2(0, -29)
+b = Vector2(33, 29)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2dknj"]
+a = Vector2(0, -29)
+b = Vector2(-34, 30)
+
 [node name="spike" type="StaticBody2D"]
-
-[node name="hitbox" type="Area2D" parent="."]
-
-[node name="topShape" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, -15)
-shape = SubResource("RectangleShape2D_lkclh")
-
-[node name="baseShape" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, 15)
-shape = SubResource("RectangleShape2D_5f7pp")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(1, 0.164706, 0.286275, 1)
 mesh = SubResource("PrismMesh_wng87")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("SegmentShape2D_1ca1a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("SegmentShape2D_2dknj")
