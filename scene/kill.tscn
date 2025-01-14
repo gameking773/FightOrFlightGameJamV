@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dff75fhb8h2mx"]
+
+[ext_resource type="AudioStream" uid="uid://c7cfh1iajvur3" path="res://assets/kill.wav" id="1_jsmj3"]
+
+[node name="Kill" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_jsmj3")
+bus = &"SFX"

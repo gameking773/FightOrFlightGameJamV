@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://datk1v2jxeav2"]
+[gd_scene load_steps=11 format=3 uid="uid://datk1v2jxeav2"]
 
 [ext_resource type="Script" path="res://script/background_handler.gd" id="1_2f10g"]
 [ext_resource type="PackedScene" uid="uid://tjb08rwsg7id" path="res://scene/player.tscn" id="1_2wj1x"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://script/terrain_gen.gd" id="4_ukmbk"]
 [ext_resource type="PackedScene" uid="uid://iuwkaoutwnvs" path="res://scene/pirate.tscn" id="7_83ha2"]
 [ext_resource type="PackedScene" uid="uid://bqkfee7tir1ia" path="res://scene/knight.tscn" id="8_lsm7x"]
+[ext_resource type="PackedScene" uid="uid://dff75fhb8h2mx" path="res://scene/kill.tscn" id="8_u5h4d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f2l7w"]
 
@@ -50,7 +51,11 @@ position = Vector2(1100, 265)
 [node name="pirate" parent="." instance=ExtResource("7_83ha2")]
 position = Vector2(958, 49)
 
+[node name="Kill" parent="pirate" instance=ExtResource("8_u5h4d")]
+
 [node name="knight" parent="." instance=ExtResource("8_lsm7x")]
 position = Vector2(765, 47)
+
+[node name="Kill" parent="knight" instance=ExtResource("8_u5h4d")]
 
 [connection signal="playispressed" from="main_menu" to="player" method="_on_main_menu_playispressed"]

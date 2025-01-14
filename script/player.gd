@@ -14,6 +14,7 @@ var walkspeed = 0
 @export var isUsingSword = true
 
 func gameover() -> void:
+	$Death.play()
 	isMoving = false
 	walkspeed = 0
 	$gameover.visible = true

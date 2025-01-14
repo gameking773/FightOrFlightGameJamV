@@ -12,6 +12,7 @@ func main_menu_despawn() -> void:
 	$Quitter.queue_free()
 
 func _on_jouer_pressed() -> void:
+	$Select.play()
 	main_menu_despawn()
 	await get_tree().create_timer(menuTimeTillPlay).timeout
 	playispressed.emit()

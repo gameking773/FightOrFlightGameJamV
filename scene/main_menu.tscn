@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgy231yb0qrh3"]
+[gd_scene load_steps=4 format=3 uid="uid://bgy231yb0qrh3"]
 
 [ext_resource type="Script" path="res://script/main_menu.gd" id="1_bqt7h"]
+[ext_resource type="Script" path="res://script/jouer.gd" id="2_b68nw"]
+[ext_resource type="AudioStream" uid="uid://731tlysg5yj4" path="res://assets/land.wav" id="3_l2kla"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -23,6 +25,7 @@ offset_right = 1158.0
 offset_bottom = 100.0
 text = "Jouer
 "
+script = ExtResource("2_b68nw")
 
 [node name="Quitter" type="Button" parent="."]
 layout_mode = 2
@@ -32,6 +35,9 @@ offset_right = 1158.0
 offset_bottom = 175.0
 text = "Quitter
 "
+
+[node name="Select" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_l2kla")
 
 [connection signal="pressed" from="Jouer" to="." method="_on_jouer_pressed"]
 [connection signal="pressed" from="Quitter" to="." method="_on_quitter_pressed"]

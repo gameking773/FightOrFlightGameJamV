@@ -13,4 +13,5 @@ func _on_hurtbox_trigger(objectHit: Area2D) -> void:
 	var objectNature = objectHit.name
 	
 	if objectNature == "bullet":
+		$Kill.play()
 		queue_free()
