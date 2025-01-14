@@ -68,3 +68,11 @@ func _on_hurtbox_trigger(objectHit: Area2D) -> void:
 	
 	if objectNature == "hitbox":
 		gameover()
+
+func _on_animation_started(anim_name: StringName) -> void:
+	if anim_name == "gunAtk":
+		await get_tree().create_timer(0.4333).timeout
+		var bullet = load("res://scene/bullet.tscn")
+		var instance = bullet.instantiate()
+		instance.position.x += 120
+		add_child(instance)

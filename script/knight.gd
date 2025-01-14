@@ -12,5 +12,5 @@ func _physics_process(delta: float) -> void:
 func _on_hurtbox_trigger(objectHit: Area2D) -> void:
 	var objectNature = objectHit.name
 	
-	if objectNature == "bullet":
+	if objectNature == "plrhitbox_sword":
 		queue_free()

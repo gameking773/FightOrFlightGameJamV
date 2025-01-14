@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://benwppfgmhu5j"]
+
+[ext_resource type="Script" path="res://script/bullet.gd" id="1_tjw0e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q2g1"]
+size = Vector2(26, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8y6cs"]
+size = Vector3(25, 5, 5)
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_tjw0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7q2g1")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_8y6cs")
