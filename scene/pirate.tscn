@@ -69,3 +69,5 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ksjk2")
 animation = &"idle"
 autoplay = "idle"
+
+[connection signal="area_entered" from="area" to="." method="_on_hurtbox_trigger"]

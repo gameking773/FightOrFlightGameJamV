@@ -47,6 +47,6 @@ position = Vector2(530, 265)
 position = Vector2(1100, 265)
 
 [node name="pirate" parent="." instance=ExtResource("7_83ha2")]
-position = Vector2(840, -27)
+position = Vector2(958, 49)
 
 [connection signal="playispressed" from="main_menu" to="player" method="_on_main_menu_playispressed"]

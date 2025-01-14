@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://tjb08rwsg7id"]
+[gd_scene load_steps=26 format=3 uid="uid://tjb08rwsg7id"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_7rxf8"]
 [ext_resource type="Texture2D" uid="uid://eoyupicak63x" path="res://texture/chick_spritesheet.png" id="2_0qk7n"]
@@ -119,6 +119,9 @@ _data = {
 "gunAtk": SubResource("Animation_6771a"),
 "swordAtk": SubResource("Animation_qou4m")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyfhe"]
+size = Vector2(8.10668, 21.5175)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4i7tt"]
 atlas = ExtResource("2_0qk7n")
@@ -481,6 +484,13 @@ position = Vector2(1.3, -18)
 rotation = -0.802851
 scale = Vector2(5, 5)
 texture = ExtResource("3_krgha")
+
+[node name="plrhitbox" type="Area2D" parent="character/sword"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="character/sword/plrhitbox"]
+position = Vector2(0.00804377, -3.85602)
+shape = SubResource("RectangleShape2D_hyfhe")
 
 [node name="gun" type="Sprite2D" parent="character"]
 visible = false

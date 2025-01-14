@@ -7,3 +7,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	move_and_slide()
+
+
+func _on_hurtbox_trigger(objectHit: Area2D) -> void:
+	var objectNature = objectHit.name
+	
+	if objectNature == "plrhitbox":
+		queue_free()
