@@ -55,7 +55,7 @@ func _input(_event: InputEvent) -> void:
 			if isUsingSword:
 				$character/attackAnim.play("swordAtk")
 			else:
-				pass
+				$character/attackAnim.play("gunAtk")
 		if Input.is_action_just_pressed("pause"):
 			isMoving = false
 
