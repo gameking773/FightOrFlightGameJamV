@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgy231yb0qrh3"]
+[gd_scene load_steps=5 format=3 uid="uid://bgy231yb0qrh3"]
 
 [ext_resource type="Script" path="res://script/main_menu.gd" id="1_bqt7h"]
-[ext_resource type="Script" path="res://script/jouer.gd" id="2_b68nw"]
 [ext_resource type="AudioStream" uid="uid://731tlysg5yj4" path="res://assets/land.wav" id="3_l2kla"]
+[ext_resource type="Texture2D" uid="uid://dl82u1fds4f4v" path="res://texture/panneau_mainmenu.png" id="4_3outy"]
+[ext_resource type="Texture2D" uid="uid://bs5j0d4nqxqeq" path="res://texture/chikn.png" id="5_1aarb"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -17,27 +18,38 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bqt7h")
 
+[node name="Select" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_l2kla")
+
 [node name="Jouer" type="Button" parent="."]
 layout_mode = 2
-offset_left = 958.0
-offset_top = 50.0
-offset_right = 1158.0
-offset_bottom = 100.0
+offset_left = 864.0
+offset_top = 106.0
+offset_right = 1064.0
+offset_bottom = 156.0
+scale = Vector2(2, 2)
 text = "Jouer
 "
-script = ExtResource("2_b68nw")
 
 [node name="Quitter" type="Button" parent="."]
 layout_mode = 2
-offset_left = 958.0
-offset_top = 125.0
-offset_right = 1158.0
-offset_bottom = 175.0
+offset_left = 864.0
+offset_top = 231.08
+offset_right = 1064.0
+offset_bottom = 281.08
+scale = Vector2(2, 2)
 text = "Quitter
 "
 
-[node name="Select" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_l2kla")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1059, -41)
+scale = Vector2(6, 6)
+texture = ExtResource("4_3outy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1046, 0.999969)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("5_1aarb")
 
 [connection signal="pressed" from="Jouer" to="." method="_on_jouer_pressed"]
 [connection signal="pressed" from="Quitter" to="." method="_on_quitter_pressed"]
