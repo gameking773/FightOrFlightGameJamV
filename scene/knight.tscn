@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bqkfee7tir1ia"]
+[gd_scene load_steps=21 format=3 uid="uid://bqkfee7tir1ia"]
 
 [ext_resource type="Script" path="res://script/knight.gd" id="1_3gje1"]
 [ext_resource type="Texture2D" uid="uid://xxdsr4ljhk8u" path="res://texture/chick_knight_spritesheeta.png" id="1_f3pnh"]
 [ext_resource type="Shader" path="res://script/deathShader.gdshader" id="2_bbsqk"]
 [ext_resource type="PackedScene" uid="uid://dff75fhb8h2mx" path="res://scene/kill.tscn" id="3_8g7tu"]
 [ext_resource type="Texture2D" uid="uid://bvq3qjmcubupm" path="res://texture/swordSprite.png" id="3_n3kwy"]
+[ext_resource type="AudioStream" uid="uid://8k7h68htclsi" path="res://assets/woosh.wav" id="6_eph1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jcqp"]
 size = Vector2(100, 100)
@@ -88,6 +89,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [1.41023]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AnimationPlayer/AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8hbj7"]
 resource_name = "sword_slash"
@@ -115,6 +128,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1.41023, -0.534071, -1.73137]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AnimationPlayer/AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.732043),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rwhoc"]
@@ -167,6 +192,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+stream = ExtResource("6_eph1u")
 
 [node name="detectPlayer" type="Area2D" parent="."]
 
