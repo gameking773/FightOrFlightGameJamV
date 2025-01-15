@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqkfee7tir1ia"]
+[gd_scene load_steps=20 format=3 uid="uid://bqkfee7tir1ia"]
 
 [ext_resource type="Script" path="res://script/knight.gd" id="1_3gje1"]
 [ext_resource type="Texture2D" uid="uid://xxdsr4ljhk8u" path="res://texture/chick_knight_spritesheeta.png" id="1_f3pnh"]
@@ -91,6 +91,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_8hbj7"]
 resource_name = "sword_slash"
+length = 0.1667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -121,6 +122,9 @@ _data = {
 "RESET": SubResource("Animation_sdro3"),
 "sword_slash": SubResource("Animation_8hbj7")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv47p"]
+size = Vector2(149, 86)
 
 [node name="knight" type="CharacterBody2D"]
 script = ExtResource("1_3gje1")
@@ -162,4 +166,13 @@ libraries = {
 "": SubResource("AnimationLibrary_rwhoc")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="detectPlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectPlayer"]
+position = Vector2(-145.5, 5)
+shape = SubResource("RectangleShape2D_fv47p")
+
 [connection signal="area_entered" from="area" to="." method="_on_hurtbox_trigger"]
+[connection signal="area_entered" from="detectPlayer" to="." method="_on_detect_player_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://datk1v2jxeav2"]
+[gd_scene load_steps=8 format=3 uid="uid://datk1v2jxeav2"]
 
 [ext_resource type="Script" path="res://script/background_handler.gd" id="1_2f10g"]
 [ext_resource type="PackedScene" uid="uid://tjb08rwsg7id" path="res://scene/player.tscn" id="1_2wj1x"]
@@ -6,10 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bgy231yb0qrh3" path="res://scene/main_menu.tscn" id="3_0gnls"]
 [ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="4_b8d8e"]
 [ext_resource type="Script" path="res://script/terrain_gen.gd" id="4_ukmbk"]
-[ext_resource type="PackedScene" uid="uid://bqkfee7tir1ia" path="res://scene/knight.tscn" id="8_lsm7x"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lshpn"]
-size = Vector2(8.10668, 21.5175)
+[ext_resource type="PackedScene" uid="uid://iuwkaoutwnvs" path="res://scene/pirate.tscn" id="7_83ha2"]
 
 [node name="game" type="Node2D"]
 
@@ -41,14 +38,7 @@ position = Vector2(530, 265)
 [node name="sand_parcelle_base2" parent="terrain" instance=ExtResource("4_b8d8e")]
 position = Vector2(1100, 265)
 
-[node name="knight" parent="." instance=ExtResource("8_lsm7x")]
-position = Vector2(1244, 59)
-
-[node name="plrhitbox_sword" type="Area2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plrhitbox_sword"]
-position = Vector2(0.00804377, -3.85602)
-shape = SubResource("RectangleShape2D_lshpn")
+[node name="pirate" parent="." instance=ExtResource("7_83ha2")]
+position = Vector2(1170, 52)
 
 [connection signal="playispressed" from="main_menu" to="player" method="_on_main_menu_playispressed"]
