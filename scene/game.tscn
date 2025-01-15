@@ -1,35 +1,29 @@
-[gd_scene load_steps=10 format=3 uid="uid://datk1v2jxeav2"]
+[gd_scene load_steps=9 format=3 uid="uid://datk1v2jxeav2"]
 
 [ext_resource type="Script" path="res://script/background_handler.gd" id="1_2f10g"]
 [ext_resource type="PackedScene" uid="uid://tjb08rwsg7id" path="res://scene/player.tscn" id="1_2wj1x"]
-[ext_resource type="Texture2D" uid="uid://m60ot8e40xlu" path="res://background1.png" id="2_6n6xe"]
+[ext_resource type="Texture2D" uid="uid://bpkhsoto0kixj" path="res://texture/Illustration4.png" id="2_qww8g"]
 [ext_resource type="PackedScene" uid="uid://bgy231yb0qrh3" path="res://scene/main_menu.tscn" id="3_0gnls"]
 [ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="4_b8d8e"]
 [ext_resource type="Script" path="res://script/terrain_gen.gd" id="4_ukmbk"]
-[ext_resource type="PackedScene" uid="uid://iuwkaoutwnvs" path="res://scene/pirate.tscn" id="7_83ha2"]
 [ext_resource type="PackedScene" uid="uid://bqkfee7tir1ia" path="res://scene/knight.tscn" id="8_lsm7x"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_f2l7w"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lshpn"]
+size = Vector2(8.10668, 21.5175)
 
 [node name="game" type="Node2D"]
 
 [node name="scrollHandler" type="Node2D" parent="."]
 script = ExtResource("1_2f10g")
 
-[node name="background" type="MeshInstance2D" parent="scrollHandler"]
-modulate = Color(0.482353, 1, 1, 1)
-position = Vector2(500, -100)
-scale = Vector2(1646, 926)
-mesh = SubResource("BoxMesh_f2l7w")
-
-[node name="Background1" type="Sprite2D" parent="scrollHandler"]
-position = Vector2(500, -150.5)
-scale = Vector2(8.23, 8.23)
-texture = ExtResource("2_6n6xe")
-
 [node name="Camera2D" type="Camera2D" parent="scrollHandler"]
 position = Vector2(500, -100)
 zoom = Vector2(0.7, 0.7)
+
+[node name="Illustration4" type="Sprite2D" parent="scrollHandler"]
+position = Vector2(499.833, -100.219)
+scale = Vector2(0.857465, 0.857465)
+texture = ExtResource("2_qww8g")
 
 [node name="player" parent="." instance=ExtResource("1_2wj1x")]
 position = Vector2(0, 65)
@@ -47,10 +41,14 @@ position = Vector2(530, 265)
 [node name="sand_parcelle_base2" parent="terrain" instance=ExtResource("4_b8d8e")]
 position = Vector2(1100, 265)
 
-[node name="pirate" parent="." instance=ExtResource("7_83ha2")]
-position = Vector2(1280, 68)
-
 [node name="knight" parent="." instance=ExtResource("8_lsm7x")]
-position = Vector2(1292, -104)
+position = Vector2(1244, 59)
+
+[node name="plrhitbox_sword" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plrhitbox_sword"]
+position = Vector2(0.00804377, -3.85602)
+shape = SubResource("RectangleShape2D_lshpn")
 
 [connection signal="playispressed" from="main_menu" to="player" method="_on_main_menu_playispressed"]

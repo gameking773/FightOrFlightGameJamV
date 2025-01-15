@@ -16,3 +16,5 @@ shape = SubResource("RectangleShape2D_7q2g1")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("BoxMesh_8y6cs")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,12 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqkfee7tir1ia"]
+[gd_scene load_steps=19 format=3 uid="uid://bqkfee7tir1ia"]
 
 [ext_resource type="Script" path="res://script/knight.gd" id="1_3gje1"]
 [ext_resource type="Texture2D" uid="uid://xxdsr4ljhk8u" path="res://texture/chick_knight_spritesheeta.png" id="1_f3pnh"]
-[ext_resource type="Shader" path="res://scene/deathShader.gdshader" id="2_bbsqk"]
+[ext_resource type="Shader" path="res://script/deathShader.gdshader" id="2_bbsqk"]
 [ext_resource type="PackedScene" uid="uid://dff75fhb8h2mx" path="res://scene/kill.tscn" id="3_8g7tu"]
+[ext_resource type="Texture2D" uid="uid://bvq3qjmcubupm" path="res://texture/swordSprite.png" id="3_n3kwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jcqp"]
 size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbet7"]
+size = Vector2(8.10668, 21.5175)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sgso6"]
 shader = ExtResource("2_bbsqk")
@@ -58,11 +62,86 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1b061"]
 size = Vector2(100, 100)
 
+[sub_resource type="Animation" id="Animation_sdro3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.42, -11.82)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.41023]
+}
+
+[sub_resource type="Animation" id="Animation_8hbj7"]
+resource_name = "sword_slash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4.42, -11.82), Vector2(-63, -48.845), Vector2(-76.255, 23.31)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.41023, -0.534071, -1.73137]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rwhoc"]
+_data = {
+"RESET": SubResource("Animation_sdro3"),
+"sword_slash": SubResource("Animation_8hbj7")
+}
+
 [node name="knight" type="CharacterBody2D"]
 script = ExtResource("1_3gje1")
 
+[node name="death" parent="." instance=ExtResource("3_8g7tu")]
+
 [node name="collisionbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3jcqp")
+
+[node name="sword" type="Sprite2D" parent="."]
+position = Vector2(4.42, -11.82)
+rotation = 1.41023
+scale = Vector2(5, 5)
+texture = ExtResource("3_n3kwy")
+
+[node name="enemyhitbox_sword" type="Area2D" parent="sword"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sword/enemyhitbox_sword"]
+position = Vector2(0.00804377, -3.85602)
+shape = SubResource("RectangleShape2D_qbet7")
 
 [node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_sgso6")
@@ -72,11 +151,15 @@ sprite_frames = SubResource("SpriteFrames_cojqn")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="death" parent="." instance=ExtResource("3_8g7tu")]
-
 [node name="area" type="Area2D" parent="."]
 
 [node name="hurtbox" type="CollisionShape2D" parent="area"]
 shape = SubResource("RectangleShape2D_1b061")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../death")
+libraries = {
+"": SubResource("AnimationLibrary_rwhoc")
+}
 
 [connection signal="area_entered" from="area" to="." method="_on_hurtbox_trigger"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/pirate.gd" id="1_dfgyr"]
 [ext_resource type="Texture2D" uid="uid://dwqe54dq8xmym" path="res://texture/chick_pirate_spritesheeta.png" id="1_ntwx3"]
-[ext_resource type="Shader" path="res://scene/deathShader.gdshader" id="1_v5q25"]
+[ext_resource type="Shader" path="res://script/deathShader.gdshader" id="1_v5q25"]
 [ext_resource type="Texture2D" uid="uid://dvmwworhtfv1q" path="res://texture/flintlockSprite.png" id="2_nvmge"]
 [ext_resource type="AudioStream" uid="uid://c7cfh1iajvur3" path="res://assets/kill.wav" id="3_7j73x"]
 
