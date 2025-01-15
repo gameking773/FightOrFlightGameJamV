@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://3jbmfgqsnqhi"]
+[gd_scene load_steps=3 format=3 uid="uid://gsuw1v53j8q7"]
 
-[ext_resource type="Texture2D" uid="uid://bxdp1duccuolm" path="res://texture/texture-sand.png" id="1_bw668"]
+[ext_resource type="Texture2D" uid="uid://bxdp1duccuolm" path="res://texture/texture-sand.png" id="1_wtb45"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0f8"]
 size = Vector2(1144, 300)
@@ -10,12 +10,12 @@ position = Vector2(-40, 265)
 
 [node name="Texture-sand" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
-texture = ExtResource("1_bw668")
+texture = ExtResource("1_wtb45")
 
 [node name="Texture-sand2" type="Sprite2D" parent="."]
 position = Vector2(572, 0)
 scale = Vector2(4, 4)
-texture = ExtResource("1_bw668")
+texture = ExtResource("1_wtb45")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(286, 0)
