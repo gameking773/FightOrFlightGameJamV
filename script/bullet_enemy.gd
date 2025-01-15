@@ -7,10 +7,10 @@ var rng = RandomNumberGenerator.new()
 func _process(_delta: float) -> void:
 	position.x -= speed
 	position.y += deflectRatio
+	await get_tree().create_timer(3).timeout
+	queue_free()
 
 func deflect() -> void:
-	monitoring = false
-	monitorable = false
 	speed = -speed
 	deflectRatio = rng.randf_range(-20,-40)
 	rotation = 130

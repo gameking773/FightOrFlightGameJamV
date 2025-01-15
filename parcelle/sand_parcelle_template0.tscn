@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceof241eap5gi"]
+[gd_scene load_steps=5 format=3 uid="uid://ceof241eap5gi"]
 
 [ext_resource type="Texture2D" uid="uid://bxdp1duccuolm" path="res://texture/texture-sand.png" id="1_c62gp"]
+[ext_resource type="PackedScene" uid="uid://b5qy1vg1r068x" path="res://scene/spike.tscn" id="2_k4roh"]
+[ext_resource type="PackedScene" uid="uid://8esgrtfgmebb" path="res://scene/platform.tscn" id="3_3t0fw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0f8"]
 size = Vector2(1144, 300)
@@ -20,3 +22,61 @@ texture = ExtResource("1_c62gp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(286, 0)
 shape = SubResource("RectangleShape2D_wx0f8")
+
+[node name="spike" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(-2, -178)
+
+[node name="spike2" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(67, -178)
+
+[node name="spike3" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(135, -178)
+
+[node name="spike4" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(204, -178)
+
+[node name="spike5" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(272, -178)
+
+[node name="spike6" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(341, -178)
+
+[node name="spike7" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(409, -178)
+
+[node name="spike8" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(478, -178)
+
+[node name="spike9" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(545, -178)
+
+[node name="spike10" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(613, -178)
+
+[node name="spike11" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(682, -178)
+
+[node name="platform" parent="." instance=ExtResource("3_3t0fw")]
+position = Vector2(-138, -182)
+scale = Vector2(4, 4)
+
+[node name="platform2" parent="." instance=ExtResource("3_3t0fw")]
+position = Vector2(351, -253)
+scale = Vector2(4, 4)
+
+[node name="platform4" parent="." instance=ExtResource("3_3t0fw")]
+position = Vector2(218, -253)
+scale = Vector2(4, 4)
+
+[node name="platform3" parent="." instance=ExtResource("3_3t0fw")]
+position = Vector2(527, -253)
+scale = Vector2(4, 4)
+
+[node name="spike12" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(341, -178)
+
+[node name="spike13" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(409, -178)
+
+[node name="spike14" parent="." instance=ExtResource("2_k4roh")]
+position = Vector2(478, -178)

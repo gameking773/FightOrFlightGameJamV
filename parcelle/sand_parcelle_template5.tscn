@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://chyw8uuel4bea"]
+[gd_scene load_steps=6 format=3 uid="uid://chyw8uuel4bea"]
 
 [ext_resource type="Texture2D" uid="uid://bxdp1duccuolm" path="res://texture/texture-sand.png" id="1_xh7d0"]
+[ext_resource type="PackedScene" uid="uid://iuwkaoutwnvs" path="res://scene/pirate.tscn" id="2_blvbv"]
+[ext_resource type="PackedScene" uid="uid://8esgrtfgmebb" path="res://scene/platform.tscn" id="3_4gjr4"]
+[ext_resource type="PackedScene" uid="uid://b5qy1vg1r068x" path="res://scene/spike.tscn" id="4_b1ay3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0f8"]
 size = Vector2(1144, 300)
@@ -20,3 +23,33 @@ texture = ExtResource("1_xh7d0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(286, 0)
 shape = SubResource("RectangleShape2D_wx0f8")
+
+[node name="pirate" parent="." instance=ExtResource("2_blvbv")]
+position = Vector2(611, -202)
+
+[node name="platform" parent="." instance=ExtResource("3_4gjr4")]
+position = Vector2(676, -342)
+scale = Vector2(4, 4)
+
+[node name="platform2" parent="." instance=ExtResource("3_4gjr4")]
+position = Vector2(502, -342)
+scale = Vector2(4, 4)
+
+[node name="platform3" parent="." instance=ExtResource("3_4gjr4")]
+position = Vector2(326, -342)
+scale = Vector2(4, 4)
+
+[node name="platform4" parent="." instance=ExtResource("3_4gjr4")]
+position = Vector2(152, -342)
+scale = Vector2(4, 4)
+
+[node name="platform5" parent="." instance=ExtResource("3_4gjr4")]
+position = Vector2(-25, -342)
+scale = Vector2(4, 4)
+
+[node name="platform6" parent="." instance=ExtResource("3_4gjr4")]
+position = Vector2(-199, -342)
+scale = Vector2(4, 4)
+
+[node name="spike" parent="." instance=ExtResource("4_b1ay3")]
+position = Vector2(-250, -398)

@@ -16,16 +16,16 @@ func _physics_process(delta: float) -> void:
 func _on_hurtbox_trigger(objectHit: Area2D) -> void:
 	var objectNature = objectHit.name
 	
-	if objectNature == "bullet" and not didSlash:
-		didSlash = true
-		$AnimationPlayer.play("sword_slash")
-	elif objectNature == "bullet" and didSlash:
+	if objectNature == "bullet" and didSlash:
 		$death.play()
 		isDead = true
 		sprite.pause()
-		sprite.material.set_shader_parameter("isdead", true)
 		await get_tree().create_timer(0.36).timeout
 		queue_free()
+	elif objectNature == "bullet" and not didSlash:
+		didSlash = true
+		$AnimationPlayer.play("sword_slash")
+	
 
 
 func _on_detect_player_area_entered(area: Area2D) -> void:

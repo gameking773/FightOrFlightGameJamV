@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://gsuw1v53j8q7"]
+[gd_scene load_steps=6 format=3 uid="uid://gsuw1v53j8q7"]
 
 [ext_resource type="Texture2D" uid="uid://bxdp1duccuolm" path="res://texture/texture-sand.png" id="1_wtb45"]
+[ext_resource type="PackedScene" uid="uid://bqkfee7tir1ia" path="res://scene/knight.tscn" id="2_e7w3t"]
+[ext_resource type="PackedScene" uid="uid://8esgrtfgmebb" path="res://scene/platform.tscn" id="3_4icqc"]
+[ext_resource type="PackedScene" uid="uid://b5qy1vg1r068x" path="res://scene/spike.tscn" id="4_yugd7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0f8"]
 size = Vector2(1144, 300)
@@ -20,3 +23,13 @@ texture = ExtResource("1_wtb45")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(286, 0)
 shape = SubResource("RectangleShape2D_wx0f8")
+
+[node name="knight" parent="." instance=ExtResource("2_e7w3t")]
+position = Vector2(77, -243)
+
+[node name="platform" parent="." instance=ExtResource("3_4icqc")]
+position = Vector2(73, -172)
+scale = Vector2(3, 3)
+
+[node name="spike" parent="." instance=ExtResource("4_yugd7")]
+position = Vector2(289, -180)

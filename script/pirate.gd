@@ -18,10 +18,8 @@ func _on_hurtbox_trigger(objectHit: Area2D) -> void:
 	
 	if objectNature == "plrhitbox_sword":
 		$death.play()
-		$collisionbox.queue_free()
 		isDead = true
 		sprite.pause()
-		sprite.material.set_shader_parameter("isdead", true)
 		await get_tree().create_timer(0.36).timeout
 		queue_free()
 	elif objectNature == "bullet":

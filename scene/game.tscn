@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://datk1v2jxeav2"]
+[gd_scene load_steps=9 format=3 uid="uid://datk1v2jxeav2"]
 
 [ext_resource type="Script" path="res://script/background_handler.gd" id="1_2f10g"]
 [ext_resource type="PackedScene" uid="uid://tjb08rwsg7id" path="res://scene/player.tscn" id="1_2wj1x"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="4_b8d8e"]
 [ext_resource type="Script" path="res://script/terrain_gen.gd" id="4_ukmbk"]
 [ext_resource type="Script" path="res://script/score_handle.gd" id="7_m3r4d"]
-[ext_resource type="PackedScene" uid="uid://bqkfee7tir1ia" path="res://scene/knight.tscn" id="8_cwee1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3gfio"]
 font_size = 42
@@ -44,17 +43,14 @@ position = Vector2(0, 65)
 [node name="terrain" type="Node2D" parent="."]
 script = ExtResource("4_ukmbk")
 
-[node name="baseParcelle" type="Node2D" parent="terrain"]
+[node name="baseParcelle" type="Node2D" parent="."]
 
-[node name="sand_parcelle_base0" parent="terrain/baseParcelle" instance=ExtResource("4_b8d8e")]
+[node name="sand_parcelle_base0" parent="baseParcelle" instance=ExtResource("4_b8d8e")]
 
-[node name="sand_parcelle_base1" parent="terrain/baseParcelle" instance=ExtResource("4_b8d8e")]
+[node name="sand_parcelle_base1" parent="baseParcelle" instance=ExtResource("4_b8d8e")]
 position = Vector2(530, 265)
 
-[node name="sand_parcelle_base2" parent="terrain/baseParcelle" instance=ExtResource("4_b8d8e")]
+[node name="sand_parcelle_base2" parent="baseParcelle" instance=ExtResource("4_b8d8e")]
 position = Vector2(1100, 265)
-
-[node name="knight" parent="." instance=ExtResource("8_cwee1")]
-position = Vector2(1046, 54)
 
 [connection signal="playispressed" from="main_menu" to="player" method="_on_main_menu_playispressed"]

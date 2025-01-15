@@ -22,6 +22,9 @@ func gameover() -> void:
 
 func gamestart() -> void:
 	$gameover.visible = false
+	var terrain = $"../terrain".get_children()
+	for node in terrain:
+		node.queue_free()
 	sprite.play()
 	velocity = Vector2(0,0)
 	position = Vector2(0,64)
@@ -42,10 +45,7 @@ func _physics_process(delta: float) -> void:
 
 		move_and_slide()
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("debug_leave"): # touche X
-		get_tree().quit()
-	
+func _input(_event: InputEvent) -> void:	
 	if Input.is_action_just_pressed("reset-restart"):
 		gamestart()
 	
