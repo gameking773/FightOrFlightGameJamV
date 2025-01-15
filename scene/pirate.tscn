@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://iuwkaoutwnvs"]
+[gd_scene load_steps=20 format=3 uid="uid://iuwkaoutwnvs"]
 
 [ext_resource type="Script" path="res://script/pirate.gd" id="1_dfgyr"]
 [ext_resource type="Texture2D" uid="uid://dwqe54dq8xmym" path="res://texture/chick_pirate_spritesheeta.png" id="1_ntwx3"]
 [ext_resource type="Shader" path="res://scene/deathShader.gdshader" id="1_v5q25"]
+[ext_resource type="Texture2D" uid="uid://dvmwworhtfv1q" path="res://texture/flintlockSprite.png" id="2_nvmge"]
 [ext_resource type="AudioStream" uid="uid://c7cfh1iajvur3" path="res://assets/kill.wav" id="3_7j73x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4rwo"]
@@ -58,16 +59,116 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_xm43n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlintlockSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-50.53, -13.665)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlintlockSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.92699]
+}
+
+[sub_resource type="Animation" id="Animation_05ft0"]
+resource_name = "flintlock_fire"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlintlockSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.6, 0.633333, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-50.435, 22.12), Vector2(-53.16, 3.375), Vector2(-53.16, 3.375), Vector2(-54.725, -9.4), Vector2(-50.595, -24.07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlintlockSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.633333, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [2.49582, 3.14159, 3.14159, 4.03869]
+}
+
+[sub_resource type="Animation" id="Animation_p87g4"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlintlockSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-50.435, 22.12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlintlockSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.49582]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1qb58"]
+_data = {
+"RESET": SubResource("Animation_xm43n"),
+"flintlock_fire": SubResource("Animation_05ft0"),
+"idle": SubResource("Animation_p87g4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tnyk"]
+size = Vector2(900, 20)
+
 [node name="pirate" type="CharacterBody2D"]
 script = ExtResource("1_dfgyr")
 
 [node name="collisionbox" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_e4rwo")
 
 [node name="area" type="Area2D" parent="."]
 
 [node name="hurtbox" type="CollisionShape2D" parent="area"]
+visible = false
 shape = SubResource("RectangleShape2D_rg0ql")
+
+[node name="FlintlockSprite" type="Sprite2D" parent="."]
+position = Vector2(-50.53, -13.665)
+rotation = 3.92699
+scale = Vector2(3, -3)
+texture = ExtResource("2_nvmge")
 
 [node name="animatedSprite" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_r11bk")
@@ -77,7 +178,22 @@ sprite_frames = SubResource("SpriteFrames_ksjk2")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="fire" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1qb58")
+}
+autoplay = "idle"
+
 [node name="death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7j73x")
 
+[node name="vision" type="Area2D" parent="."]
+visible = false
+
+[node name="triggerbox" type="CollisionShape2D" parent="vision"]
+visible = false
+position = Vector2(-503.325, 0)
+shape = SubResource("RectangleShape2D_0tnyk")
+
 [connection signal="area_entered" from="area" to="." method="_on_hurtbox_trigger"]
+[connection signal="area_entered" from="vision" to="." method="_on_vision_entered"]

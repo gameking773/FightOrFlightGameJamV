@@ -69,7 +69,7 @@ func _on_main_menu_playispressed() -> void:
 func _on_hurtbox_trigger(objectHit: Area2D) -> void:
 	var objectNature = objectHit.name
 	
-	if objectNature == "hitbox":
+	if objectNature == "hitbox" or objectNature == "bullet_enemy":
 		gameover()
 
 func _on_animation_started(anim_name: StringName) -> void:

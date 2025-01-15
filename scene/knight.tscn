@@ -1,11 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqkfee7tir1ia"]
+[gd_scene load_steps=14 format=3 uid="uid://bqkfee7tir1ia"]
 
 [ext_resource type="Script" path="res://script/knight.gd" id="1_3gje1"]
 [ext_resource type="Texture2D" uid="uid://xxdsr4ljhk8u" path="res://texture/chick_knight_spritesheeta.png" id="1_f3pnh"]
+[ext_resource type="Shader" path="res://scene/deathShader.gdshader" id="2_bbsqk"]
 [ext_resource type="PackedScene" uid="uid://dff75fhb8h2mx" path="res://scene/kill.tscn" id="3_8g7tu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jcqp"]
 size = Vector2(100, 100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sgso6"]
+shader = ExtResource("2_bbsqk")
+shader_parameter/isdead = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ml6fn"]
 atlas = ExtResource("1_f3pnh")
@@ -60,13 +65,14 @@ script = ExtResource("1_3gje1")
 shape = SubResource("RectangleShape2D_3jcqp")
 
 [node name="animatedSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_sgso6")
 position = Vector2(0, -47)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_cojqn")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Kill" parent="." instance=ExtResource("3_8g7tu")]
+[node name="death" parent="." instance=ExtResource("3_8g7tu")]
 
 [node name="area" type="Area2D" parent="."]
 
