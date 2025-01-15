@@ -24,6 +24,7 @@ func _on_hurtbox_trigger(objectHit: Area2D) -> void:
 		queue_free()
 	elif objectNature == "bullet" and not didSlash:
 		didSlash = true
+		$deflect.play()
 		$AnimationPlayer.play("sword_slash")
 	
 

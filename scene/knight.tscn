@@ -1,16 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqkfee7tir1ia"]
+[gd_scene load_steps=20 format=3 uid="uid://bqkfee7tir1ia"]
 
 [ext_resource type="Script" path="res://script/knight.gd" id="1_3gje1"]
 [ext_resource type="Texture2D" uid="uid://xxdsr4ljhk8u" path="res://texture/chick_knight_spritesheeta.png" id="1_f3pnh"]
 [ext_resource type="PackedScene" uid="uid://dff75fhb8h2mx" path="res://scene/kill.tscn" id="3_8g7tu"]
 [ext_resource type="Texture2D" uid="uid://bvq3qjmcubupm" path="res://texture/swordSprite.png" id="3_n3kwy"]
 [ext_resource type="AudioStream" uid="uid://8k7h68htclsi" path="res://assets/woosh.wav" id="6_eph1u"]
+[ext_resource type="AudioStream" uid="uid://dugo0qtwyq33g" path="res://assets/ricochet.wav" id="6_qhb0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jcqp"]
 size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbet7"]
-size = Vector2(8.10668, 21.5175)
+size = Vector2(8.10668, 17.0167)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ml6fn"]
 atlas = ExtResource("1_f3pnh")
@@ -163,7 +164,7 @@ texture = ExtResource("3_n3kwy")
 [node name="enemyhitbox_sword" type="Area2D" parent="sword"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sword/enemyhitbox_sword"]
-position = Vector2(0.00804377, -3.85602)
+position = Vector2(0.00804424, -1.60561)
 shape = SubResource("RectangleShape2D_qbet7")
 
 [node name="animatedSprite" type="AnimatedSprite2D" parent="."]
@@ -193,6 +194,9 @@ stream = ExtResource("6_eph1u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectPlayer"]
 position = Vector2(-145.5, 5)
 shape = SubResource("RectangleShape2D_fv47p")
+
+[node name="deflect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qhb0y")
 
 [connection signal="area_entered" from="area" to="." method="_on_hurtbox_trigger"]
 [connection signal="area_entered" from="detectPlayer" to="." method="_on_detect_player_area_entered"]

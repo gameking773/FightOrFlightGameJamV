@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpxb7uvf7nhu4"]
+[gd_scene load_steps=5 format=3 uid="uid://bamekvsjlhipe"]
 
 [ext_resource type="Script" path="res://script/bullet_enemy.gd" id="1_wfxy5"]
+[ext_resource type="AudioStream" uid="uid://dugo0qtwyq33g" path="res://assets/ricochet.wav" id="2_8fbb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0rrv"]
 size = Vector2(26, 6)
@@ -16,5 +17,8 @@ shape = SubResource("RectangleShape2D_o0rrv")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("BoxMesh_o4nwj")
+
+[node name="deflect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8fbb1")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

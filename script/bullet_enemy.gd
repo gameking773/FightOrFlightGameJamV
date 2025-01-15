@@ -14,6 +14,7 @@ func deflect() -> void:
 	speed = -speed
 	deflectRatio = rng.randf_range(-20,-40)
 	rotation = 130
+	$deflect.play()
 	await get_tree().create_timer(1).timeout
 	queue_free()
 
