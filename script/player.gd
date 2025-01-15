@@ -14,13 +14,15 @@ var walkspeed = 0
 @export var isUsingSword = true
 
 func gameover() -> void:
-	$Death.play()
+	$gameover/Death.play()
+	sprite.pause()
 	isMoving = false
 	walkspeed = 0
 	$gameover.visible = true
 
 func gamestart() -> void:
 	$gameover.visible = false
+	sprite.play()
 	velocity = Vector2(0,0)
 	position = Vector2(0,64)
 	walkspeed = max_walkspeed
@@ -72,7 +74,7 @@ func _on_hurtbox_trigger(objectHit: Area2D) -> void:
 
 func _on_animation_started(anim_name: StringName) -> void:
 	if anim_name == "gunAtk":
-		await get_tree().create_timer(0.4333).timeout
+		await get_tree().create_timer(0.1333).timeout
 		var bullet = load("res://scene/bullet.tscn")
 		var instance = bullet.instantiate()
 		instance.position.x += 120
