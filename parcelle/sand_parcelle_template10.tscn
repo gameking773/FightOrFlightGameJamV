@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddrbbmt5a03nc"]
+
+[ext_resource type="Texture2D" uid="uid://bxdp1duccuolm" path="res://texture/texture-sand.png" id="1_72vdx"]
+[ext_resource type="PackedScene" uid="uid://8esgrtfgmebb" path="res://scene/platform.tscn" id="3_h5ey5"]
+[ext_resource type="PackedScene" uid="uid://b5qy1vg1r068x" path="res://scene/spike.tscn" id="3_me8w4"]
+[ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="4_4ubro"]
+[ext_resource type="PackedScene" uid="uid://iuwkaoutwnvs" path="res://scene/pirate.tscn" id="5_5i48e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0f8"]
+size = Vector2(1144, 300)
+
+[node name="sand_parcelle" type="StaticBody2D"]
+position = Vector2(-40, 265)
+
+[node name="Texture-sand" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_72vdx")
+
+[node name="Texture-sand2" type="Sprite2D" parent="."]
+position = Vector2(572, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("1_72vdx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(286, 0)
+shape = SubResource("RectangleShape2D_wx0f8")
+
+[node name="spike" parent="." instance=ExtResource("3_me8w4")]
+position = Vector2(438, -178)
+
+[node name="spike2" parent="." instance=ExtResource("3_me8w4")]
+position = Vector2(372, -178)
+
+[node name="spike3" parent="." instance=ExtResource("3_me8w4")]
+position = Vector2(302, -178)
+
+[node name="spike4" parent="." instance=ExtResource("3_me8w4")]
+position = Vector2(234, -178)
+
+[node name="spike5" parent="." instance=ExtResource("3_me8w4")]
+position = Vector2(505, -178)
+
+[node name="spike6" parent="." instance=ExtResource("3_me8w4")]
+position = Vector2(167, -178)
+
+[node name="spike7" parent="." instance=ExtResource("3_me8w4")]
+position = Vector2(102, -178)
+
+[node name="spike8" parent="." instance=ExtResource("3_me8w4")]
+position = Vector2(38, -178)
+
+[node name="platform" parent="." instance=ExtResource("3_h5ey5")]
+position = Vector2(12, -234)
+scale = Vector2(4, 4)
+
+[node name="platform2" parent="." instance=ExtResource("3_h5ey5")]
+position = Vector2(291, -236)
+scale = Vector2(4, 4)
+
+[node name="sand_parcelle" parent="." instance=ExtResource("4_4ubro")]
+position = Vector2(1140, 0)
+
+[node name="spike9" parent="." instance=ExtResource("3_me8w4")]
+position = Vector2(574, -179)
+
+[node name="platform3" parent="." instance=ExtResource("3_h5ey5")]
+position = Vector2(563, -236)
+scale = Vector2(4, 4)
+
+[node name="pirate" parent="." instance=ExtResource("5_5i48e")]
+position = Vector2(1247, -203)

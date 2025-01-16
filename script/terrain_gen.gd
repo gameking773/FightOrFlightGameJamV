@@ -5,7 +5,7 @@ var rng = RandomNumberGenerator.new()
 @export var parcelleCount:int = 0
 
 func creerParcelle() -> void: # Note : Chaque parcelle est espacé de 570 sur l'axe x, x2 = 1140, l'axe y n'aura pas besoin d'être modifié
-	var randomNum = rng.randi_range(0,6)
+	var randomNum = rng.randi_range(0,10)
 	var parcelleChoosen = "res://parcelle/sand_parcelle_template" + str(randomNum) + ".tscn"
 	
 	var parcelle = load(parcelleChoosen)
