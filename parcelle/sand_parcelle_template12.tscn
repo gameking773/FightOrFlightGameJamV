@@ -2,17 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://bxdp1duccuolm" path="res://texture/texture-sand.png" id="1_jdss2"]
 [ext_resource type="PackedScene" uid="uid://bqkfee7tir1ia" path="res://scene/knight.tscn" id="2_yo4u8"]
-[ext_resource type="PackedScene" path="res://scene/sand_parcelle_template.tscn" id="3_layae"]
 [ext_resource type="PackedScene" uid="uid://b5qy1vg1r068x" path="res://scene/spike.tscn" id="3_m0ehy"]
+[ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="4_wjqi8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0f8"]
-size = Vector2(1144, 300)
+size = Vector2(1274, 300)
 
 [node name="sand_parcelle" type="StaticBody2D"]
 position = Vector2(-40, 265)
 
 [node name="Texture-sand" type="Sprite2D" parent="."]
-scale = Vector2(4, 4)
+position = Vector2(-66, 0)
+scale = Vector2(4.92308, 4)
 texture = ExtResource("1_jdss2")
 
 [node name="Texture-sand2" type="Sprite2D" parent="."]
@@ -21,14 +22,11 @@ scale = Vector2(4, 4)
 texture = ExtResource("1_jdss2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(286, 0)
+position = Vector2(221, 0)
 shape = SubResource("RectangleShape2D_wx0f8")
 
 [node name="knight" parent="." instance=ExtResource("2_yo4u8")]
-position = Vector2(1631, -201)
-
-[node name="sand_parcelle" parent="." instance=ExtResource("3_layae")]
-position = Vector2(895, 0)
+position = Vector2(1135, -201)
 
 [node name="spike" parent="." instance=ExtResource("3_m0ehy")]
 position = Vector2(218, -181)
@@ -39,8 +37,11 @@ position = Vector2(436, -179)
 [node name="spike3" parent="." instance=ExtResource("3_m0ehy")]
 position = Vector2(660, -179)
 
-[node name="spike4" parent="." instance=ExtResource("3_m0ehy")]
-position = Vector2(901, -179)
+[node name="sand_parcelle" parent="." instance=ExtResource("4_wjqi8")]
+position = Vector2(1108, 1)
 
-[node name="spike5" parent="." instance=ExtResource("3_m0ehy")]
-position = Vector2(1170, -181)
+[node name="spike4" parent="." instance=ExtResource("3_m0ehy")]
+position = Vector2(876, -180)
+
+[node name="sand_parcelle2" parent="." instance=ExtResource("4_wjqi8")]
+position = Vector2(-248, 1)

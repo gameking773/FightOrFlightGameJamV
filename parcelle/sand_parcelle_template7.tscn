@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://y4h7p5icujhs"]
+[gd_scene load_steps=8 format=3 uid="uid://y4h7p5icujhs"]
 
 [ext_resource type="Texture2D" uid="uid://bxdp1duccuolm" path="res://texture/texture-sand.png" id="1_m0fso"]
 [ext_resource type="PackedScene" uid="uid://bqkfee7tir1ia" path="res://scene/knight.tscn" id="2_o65ws"]
 [ext_resource type="PackedScene" uid="uid://b5qy1vg1r068x" path="res://scene/spike.tscn" id="3_mvlgk"]
 [ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="4_b5r2u"]
-[ext_resource type="PackedScene" path="res://scene/sand_parcelle_template.tscn" id="5_782t4"]
 [ext_resource type="PackedScene" uid="uid://8esgrtfgmebb" path="res://scene/platform.tscn" id="6_14xrc"]
 [ext_resource type="PackedScene" uid="uid://iuwkaoutwnvs" path="res://scene/pirate.tscn" id="7_chhr5"]
 
@@ -28,19 +27,16 @@ position = Vector2(286, 0)
 shape = SubResource("RectangleShape2D_wx0f8")
 
 [node name="knight" parent="." instance=ExtResource("2_o65ws")]
-position = Vector2(538, -200)
+position = Vector2(495, -200)
 
 [node name="spike" parent="." instance=ExtResource("3_mvlgk")]
-position = Vector2(267, -180)
+position = Vector2(222, -180)
 
 [node name="sand_parcelle" parent="." instance=ExtResource("4_b5r2u")]
 position = Vector2(1144, 1)
 
-[node name="sand_parcelle2" parent="." instance=ExtResource("5_782t4")]
-position = Vector2(1714, 1)
-
 [node name="platform" parent="." instance=ExtResource("6_14xrc")]
-position = Vector2(746, -236)
+position = Vector2(709, -231)
 scale = Vector2(4, 4)
 
 [node name="platform" parent="platform" instance=ExtResource("6_14xrc")]
@@ -48,31 +44,21 @@ position = Vector2(764, -235)
 scale = Vector2(4, 4)
 
 [node name="platform2" parent="." instance=ExtResource("6_14xrc")]
-position = Vector2(1093, -240)
+position = Vector2(1060, -235)
 scale = Vector2(4, 4)
 
 [node name="spike2" parent="." instance=ExtResource("3_mvlgk")]
-position = Vector2(857, -180)
+position = Vector2(807, -180)
 
 [node name="spike3" parent="." instance=ExtResource("3_mvlgk")]
-position = Vector2(920, -180)
+position = Vector2(875, -177)
 
 [node name="spike4" parent="." instance=ExtResource("3_mvlgk")]
-position = Vector2(983, -180)
+position = Vector2(940, -180)
 
 [node name="platform3" parent="." instance=ExtResource("6_14xrc")]
-position = Vector2(1271, -240)
-scale = Vector2(4, 4)
-
-[node name="platform4" parent="." instance=ExtResource("6_14xrc")]
-position = Vector2(1449, -240)
+position = Vector2(1241, -235)
 scale = Vector2(4, 4)
 
 [node name="pirate" parent="." instance=ExtResource("7_chhr5")]
-position = Vector2(1497, -318)
-
-[node name="knight2" parent="." instance=ExtResource("2_o65ws")]
-position = Vector2(2471, -204)
-
-[node name="pirate2" parent="." instance=ExtResource("7_chhr5")]
-position = Vector2(2248, -201)
+position = Vector2(1303, -307)

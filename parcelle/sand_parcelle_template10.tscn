@@ -69,3 +69,6 @@ scale = Vector2(4, 4)
 
 [node name="pirate" parent="." instance=ExtResource("5_5i48e")]
 position = Vector2(1247, -203)
+
+[node name="sand_parcelle2" parent="." instance=ExtResource("4_4ubro")]
+position = Vector2(-251, 2)

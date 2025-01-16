@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bqkfee7tir1ia" path="res://scene/knight.tscn" id="2_6jy8b"]
 [ext_resource type="PackedScene" uid="uid://b5qy1vg1r068x" path="res://scene/spike.tscn" id="3_cg6c5"]
 [ext_resource type="PackedScene" path="res://scene/sand_parcelle_template.tscn" id="4_knp4c"]
-[ext_resource type="PackedScene" uid="uid://iuwkaoutwnvs" path="res://scene/pirate.tscn" id="5_6lfcp"]
+[ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="5_2e0oi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0f8"]
 size = Vector2(1144, 300)
@@ -26,16 +26,19 @@ position = Vector2(286, 0)
 shape = SubResource("RectangleShape2D_wx0f8")
 
 [node name="knight" parent="." instance=ExtResource("2_6jy8b")]
-position = Vector2(1377, -201)
+position = Vector2(1201, -203)
 
 [node name="spike" parent="." instance=ExtResource("3_cg6c5")]
 position = Vector2(186, -181)
 
 [node name="sand_parcelle" parent="." instance=ExtResource("4_knp4c")]
-position = Vector2(750, 1)
-
-[node name="pirate" parent="." instance=ExtResource("5_6lfcp")]
-position = Vector2(1072, -200)
+position = Vector2(621, 1)
 
 [node name="spike2" parent="." instance=ExtResource("3_cg6c5")]
 position = Vector2(407, -178)
+
+[node name="knight2" parent="." instance=ExtResource("2_6jy8b")]
+position = Vector2(1004, -202)
+
+[node name="sand_parcelle2" parent="." instance=ExtResource("5_2e0oi")]
+position = Vector2(-248, 2)

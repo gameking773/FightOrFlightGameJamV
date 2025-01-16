@@ -37,3 +37,6 @@ position = Vector2(289, -180)
 
 [node name="sand_parcelle" parent="." instance=ExtResource("5_r70op")]
 position = Vector2(-239, 0)
+
+[node name="sand_parcelle2" parent="." instance=ExtResource("5_r70op")]
+position = Vector2(-437, 0)

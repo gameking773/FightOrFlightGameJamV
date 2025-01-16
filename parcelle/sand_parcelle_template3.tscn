@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bucimbkf24rgx"]
+[gd_scene load_steps=6 format=3 uid="uid://bucimbkf24rgx"]
 
 [ext_resource type="Texture2D" uid="uid://bxdp1duccuolm" path="res://texture/texture-sand.png" id="1_mbgsd"]
 [ext_resource type="PackedScene" uid="uid://8esgrtfgmebb" path="res://scene/platform.tscn" id="2_wr3ed"]
 [ext_resource type="PackedScene" uid="uid://b5qy1vg1r068x" path="res://scene/spike.tscn" id="3_uepv8"]
+[ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="4_4eao0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0f8"]
 size = Vector2(1144, 300)
@@ -40,3 +41,6 @@ position = Vector2(175, -179)
 
 [node name="spike2" parent="." instance=ExtResource("3_uepv8")]
 position = Vector2(544, -293)
+
+[node name="sand_parcelle" parent="." instance=ExtResource("4_4eao0")]
+position = Vector2(-382, 1)

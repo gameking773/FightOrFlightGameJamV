@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ui63rr7lisrd"]
+[gd_scene load_steps=7 format=3 uid="uid://ui63rr7lisrd"]
 
 [ext_resource type="Texture2D" uid="uid://bxdp1duccuolm" path="res://texture/texture-sand.png" id="1_4ochs"]
 [ext_resource type="PackedScene" uid="uid://8esgrtfgmebb" path="res://scene/platform.tscn" id="2_jj4cr"]
 [ext_resource type="PackedScene" uid="uid://b5qy1vg1r068x" path="res://scene/spike.tscn" id="3_1uxt2"]
 [ext_resource type="PackedScene" uid="uid://iuwkaoutwnvs" path="res://scene/pirate.tscn" id="4_m0tss"]
+[ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="5_4x2qb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0f8"]
 size = Vector2(1144, 300)
@@ -44,3 +45,6 @@ position = Vector2(573, -177)
 
 [node name="pirate" parent="." instance=ExtResource("4_m0tss")]
 position = Vector2(712, -388)
+
+[node name="sand_parcelle" parent="." instance=ExtResource("5_4x2qb")]
+position = Vector2(-278, -1)
