@@ -57,6 +57,7 @@ position = Vector2(1100, 265)
 [node name="Musique" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_k3tyy")
 autoplay = true
+max_distance = 9.22337e+18
 bus = &"Music"
 
 [connection signal="playispressed" from="main_menu" to="player" method="_on_main_menu_playispressed"]
