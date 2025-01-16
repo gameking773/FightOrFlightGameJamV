@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c6oq4v6nvex38" path="res://scene/sand_parcelle.tscn" id="4_b8d8e"]
 [ext_resource type="Script" path="res://script/terrain_gen.gd" id="4_ukmbk"]
 [ext_resource type="Script" path="res://script/score_handle.gd" id="7_m3r4d"]
-[ext_resource type="AudioStream" uid="uid://dcafk5oqw4ij8" path="res://assets/man-is-he-mega-glbml-22045.wav" id="8_k3tyy"]
+[ext_resource type="AudioStream" uid="uid://cgr8jisldq1ri" path="res://assets/man-is-he-mega-glbml-22045.wav" id="8_k3tyy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3gfio"]
 font_size = 42
