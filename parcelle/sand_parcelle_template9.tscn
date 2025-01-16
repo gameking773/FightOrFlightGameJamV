@@ -39,7 +39,7 @@ position = Vector2(529, -178)
 position = Vector2(596, -178)
 
 [node name="platform" parent="." instance=ExtResource("4_n26by")]
-position = Vector2(450, -243)
+position = Vector2(454, -225)
 scale = Vector2(4, 4)
 
 [node name="platform2" parent="." instance=ExtResource("4_n26by")]
