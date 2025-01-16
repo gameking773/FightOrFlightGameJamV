@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bvq3qjmcubupm" path="res://texture/swordSprite.png" id="3_krgha"]
 [ext_resource type="AudioStream" uid="uid://8k7h68htclsi" path="res://assets/woosh.wav" id="4_b6664"]
 [ext_resource type="Texture2D" uid="uid://dvmwworhtfv1q" path="res://texture/flintlockSprite.png" id="5_b7yng"]
-[ext_resource type="AudioStream" uid="uid://byxoesmrtgl56" path="res://assets/dark-souls-you-died-sound-effect_hm5sYFG.mp3" id="9_m5o2w"]
+[ext_resource type="AudioStream" uid="uid://6krx7eqp3t01" path="res://assets/chicken-noise-196746.wav" id="8_tgy21"]
 
 [sub_resource type="Animation" id="Animation_k8gmw"]
 length = 0.001
@@ -570,11 +570,11 @@ middle_mouse_paste_enabled = false
 use_default_word_separators = false
 
 [node name="Death" type="AudioStreamPlayer2D" parent="gameover"]
-stream = ExtResource("9_m5o2w")
+stream = ExtResource("8_tgy21")
 bus = &"SFX"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-34, 22, -12, 39, -4, 48, 30, 47, 28, 0, 25, -25, 14, -37, 4, -16, -15, 4, -34, -3)
+polygon = PackedVector2Array(-34, 22, -12, 39, -4, 48, 30, 47, 47, 41, 45, 2, 45, -17, 25, -25, 14, -37, 4, -16, -15, 4, -34, -3)
 
 [connection signal="animation_started" from="character/attackAnim" to="." method="_on_animation_started"]
 [connection signal="area_entered" from="playerArea" to="." method="_on_hurtbox_trigger"]
